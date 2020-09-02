@@ -17,7 +17,7 @@ Type /help for more details."""
     AFTER_SUCCESSFUL_UPLOAD_MSG = "**Thank you for Using [Anonymous](https://t.me/Ns_AnoNymouS)'s bot.**"
     AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "Downloaded in {} seconds.\nUploaded in {} seconds."
     NOT_AUTH_USER_TEXT = "Please /upgrade your subscription."
-    NOT_AUTH_USER_TEXT_FILE_SIZE = "Detected File Size: {}. Free Users can only upload: {}\nPlease /upgrade your subscription.\nIf you think this is a bug, please contact <a href='https://telegram.dog/ThankTelegram'>@SpEcHlDe</a>"
+    NOT_AUTH_USER_TEXT_FILE_SIZE = "Detected File Size: {}. Free Users can only upload: {}\nPlease /upgrade your subscription.\nIf you think this is a bug, please contact <a href='https://t.me/'>Ns Bot Supporters</a>"
     SAVED_CUSTOM_THUMB_NAIL = "Custom File thumbnail saved ✅️ permanently. This image will be used in the File."
     DEL_ETED_CUSTOM_THUMB_NAIL = "✅ Custom thumbnail cleared succesfully."
     FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "✅ Media cleared succesfully."
@@ -55,3 +55,16 @@ The given file name has {num} characters.
 <b>Essays Not allowed in Telegram file name!</b>
 ©️ <code>@renamer23_bot</code>
 Please short your file name and try again!"""
+
+    About = """Hi <b>{}</b>,
+**📝 Language:** Python 3
+
+**🧰 Framework:** Pyrogram
+
+**👨‍💻 Developer:** [Anonymous](https://t.me/Ns_AnoNymouS)
+
+📮 Channel: [Ns Bot Updates](https://t.me/anonymousbotupdates)
+
+**👥 Group:** [Ns Bot Supporters](https://t.me/anonymousbotdiscussion)
+
+**💻 Source Code:**Please join [Ns Bot Supporters](https://t.me/anonymousbotdiscussion) and ask for source code there 🥰. 
