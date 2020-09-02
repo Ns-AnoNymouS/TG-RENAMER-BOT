@@ -20,6 +20,14 @@
       "description": "Your bot token, as a string.",
       "value": ""
     },
+    "User_Name": {
+      "description": "Your user name like @Ns_AnoNymouS",
+      "value": "@Ns_AnoNymouS"
+    },
+    "Your_id": {
+      "description": "Your Id , get this from @missrose",
+      "value": "1337144652"
+    },
     "CHAT_BASE_TOKEN": {
       "description": "Your chat base token, as a string.",
       "value": ""
