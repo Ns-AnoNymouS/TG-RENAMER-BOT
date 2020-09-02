@@ -104,8 +104,7 @@ async def donate(bot, update):
 async def about(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.ABOUT.format(update.from_user.first_name),
-        parse_mode="html",
-        disable_web_page_preview=True,
+        text=Translation.About.format(update.from_user.first_name),
+        parse_mode="markdown",
         reply_to_message_id=update.message_id
     )
