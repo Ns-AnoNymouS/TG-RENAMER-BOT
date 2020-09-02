@@ -3,7 +3,7 @@ class Translation(object):
 
 This is a Telegram Rename Bot by {}
 
-I Can rename ✍ with custom thumbnail and upload as video/file
+I Can rename  with custom thumbnail and upload as video/file
 
 Type /help for more details."""
     RENAME_403_ERR = "Sorry. You are not permitted to rename this file."
