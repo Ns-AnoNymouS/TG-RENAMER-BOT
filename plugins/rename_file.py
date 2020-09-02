@@ -8,7 +8,9 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+import numpy
 import os
+from PIL import Image
 import time
 
 # the secret configuration specific things
@@ -22,125 +24,116 @@ from translation import Translation
 
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
-from pyrogram import Client, Filters
 
 from helper_funcs.chat_base import TRChatBase
-from helper_funcs.display_progress import progress_for_pyrogram
+import database.database as sql
 
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-# https://stackoverflow.com/a/37631799/4723940
-from PIL import Image
-
-
-
-@pyrogram.Client.on_message(pyrogram.Filters.command(["rename"]))
-async def rename_doc(bot, update):
+@pyrogram.Client.on_message(pyrogram.Filters.command(["generatecustomthumbnail"]))
+async def generate_custom_thumbnail(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D")
         return
-    TRChatBase(update.from_user.id, update.text, "rename")
-    if (" " in update.text) and (update.reply_to_message is not None):
-        cmd, file_name = update.text.split(" ", 1)
-        if len(file_name) > 6400:
-            await update.reply_text(
-                Translation.IFLONG_FILE_NAME.format(
-                    alimit="6400",
-                    num=len(file_name)
-                )
-            )
-            return
-        description = Translation.CUSTOM_CAPTION_UL_FILE
-        download_location = Config.DOWNLOAD_LOCATION + "/"
-        a = await bot.send_message(
-            chat_id=update.chat.id,
-            text=Translation.DOWNLOAD_START,
-            reply_to_message_id=update.message_id
-        )
-        c_time = time.time()
-        the_real_download_location = await bot.download_media(
-            message=update.reply_to_message,
-            file_name=download_location,
-            progress=progress_for_pyrogram,
-            progress_args=(
-                Translation.DOWNLOAD_START,
-                a,
-                c_time
-            )
-        )
-        if the_real_download_location is not None:
-            try:
-                await bot.edit_message_text(
-                    text=Translation.SAVED_RECVD_DOC_FILE,
+    TRChatBase(update.from_user.id, update.text, "generatecustomthumbnail")
+    if update.reply_to_message is not None:
+        reply_message = update.reply_to_message
+        if reply_message.media_group_id is not None:
+            download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(reply_message.media_group_id) + "/"
+            save_final_image = download_location + str(round(time.time())) + ".jpg"
+            list_im = os.listdir(download_location)
+            if len(list_im) == 2:
+                imgs = [ Image.open(download_location + i) for i in list_im ]
+                inm_aesph = sorted([(numpy.sum(i.size), i.size) for i in imgs])
+                min_shape = inm_aesph[1][1]
+                imgs_comb = numpy.hstack(numpy.asarray(i.resize(min_shape)) for i in imgs)
+                imgs_comb = Image.fromarray(imgs_comb)
+                # combine: https://stackoverflow.com/a/30228789/4723940
+                imgs_comb.save(save_final_image)
+                # send
+                await bot.send_photo(
                     chat_id=update.chat.id,
-                    message_id=a.message_id
+                    photo=save_final_image,
+                    caption=Translation.CUSTOM_CAPTION_UL_FILE,
+                    reply_to_message_id=update.message_id
                 )
-            except:
-                pass
-            new_file_name = download_location + file_name
-            os.rename(the_real_download_location, new_file_name)
-            await bot.edit_message_text(
-                text=Translation.UPLOAD_START,
-                chat_id=update.chat.id,
-                message_id=a.message_id
-                )
-            logger.info(the_real_download_location)
-            thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
-            if not os.path.exists(thumb_image_path):
-                mes = await get_thumb(update.from_user.id)
-                if mes != None:
-                    m = await bot.get_messages(update.chat.id, mes.msg_id)
-                    await m.download(file_name=thumb_image_path)
-                    thumb_image_path = thumb_image_path
-                else:
-                    thumb_image_path = None
             else:
-                width = 0
-                height = 0
-                metadata = extractMetadata(createParser(thumb_image_path))
-                if metadata.has("width"):
-                    width = metadata.get("width")
-                if metadata.has("height"):
-                    height = metadata.get("height")
-                # resize image
-                # ref: https://t.me/PyrogramChat/44663
-                # https://stackoverflow.com/a/21669827/4723940
-                Image.open(thumb_image_path).convert("RGB").save(thumb_image_path)
-                img = Image.open(thumb_image_path)
-                # https://stackoverflow.com/a/37631799/4723940
-                # img.thumbnail((90, 90))
-                img.resize((320, height))
-                img.save(thumb_image_path, "JPEG")
-                # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
-            c_time = time.time()
-            await bot.send_document(
-                chat_id=update.chat.id,
-                document=new_file_name,
-                thumb=thumb_image_path,
-                caption=description.format(file_name[:-4]),
-                # reply_markup=reply_markup,
-                reply_to_message_id=update.reply_to_message.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    Translation.UPLOAD_START,
-                    a, 
-                    c_time
+                await bot.send_message(
+                    chat_id=update.chat.id,
+                    text=Translation.ERR_ONLY_TWO_MEDIA_IN_ALBUM,
+                    reply_to_message_id=update.message_id
                 )
-            )
             try:
-                os.remove(new_file_name)
-                os.remove(thumb_image_path)
+                [os.remove(download_location + i) for i in list_im ]
+                os.remove(download_location)
             except:
                 pass
-            await bot.edit_message_text(
-                text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG,
+        else:
+            await bot.send_message(
                 chat_id=update.chat.id,
-                message_id=a.message_id,
-                disable_web_page_preview=True
+                text=Translation.REPLY_TO_MEDIA_ALBUM_TO_GEN_THUMB,
+                reply_to_message_id=update.message_id
             )
     else:
         await bot.send_message(
             chat_id=update.chat.id,
-            text=Translation.REPLY_TO_DOC_FOR_RENAME_FILE,
+            text=Translation.REPLY_TO_MEDIA_ALBUM_TO_GEN_THUMB,
             reply_to_message_id=update.message_id
         )
+
+
+@pyrogram.Client.on_message(pyrogram.Filters.photo)
+async def save_photo(bot, update):
+    if update.from_user.id in Config.BANNED_USERS:
+        await bot.delete_messages(
+            chat_id=update.chat.id,
+            message_ids=update.message_id,
+            revoke=True
+        )
+        return
+    TRChatBase(update.from_user.id, update.text, "save_photo")
+    if update.media_group_id is not None:
+        # album is sent
+        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(update.media_group_id) + "/"
+        # create download directory, if not exist
+        if not os.path.isdir(download_location):
+            os.makedirs(download_location)
+        await sql.df_thumb(update.from_user.id, update.message_id)
+        await bot.download_media(
+            message=update,
+            file_name=download_location
+        )
+    else:
+        # received single photo
+        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+        await sql.df_thumb(update.from_user.id, update.message_id)
+        await bot.download_media(
+            message=update,
+            file_name=download_location
+        )
+        await bot.send_message(
+            chat_id=update.chat.id,
+            text=Translation.SAVED_CUSTOM_THUMB_NAIL,
+            reply_to_message_id=update.message_id
+        )
+
+
+@pyrogram.Client.on_message(pyrogram.Filters.command(["deletethumbnail"]))
+async def delete_thumbnail(bot, update):
+    if update.from_user.id in Config.BANNED_USERS:
+        await bot.delete_messages(
+            chat_id=update.chat.id,
+            message_ids=update.message_id,
+            revoke=True
+        )
+        return
+    TRChatBase(update.from_user.id, update.text, "deletethumbnail")
+    download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id)
+    try:
+        await sql.del_thumb(update.from_user.id)
+        os.remove(download_location + ".jpg")
+    except:
+        pass
+    await bot.send_message(
+        chat_id=update.chat.id,
+        text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL,
+        reply_to_message_id=update.message_id
+    )
