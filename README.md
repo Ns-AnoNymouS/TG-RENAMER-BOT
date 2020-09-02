@@ -1,24 +1,31 @@
 # TG-RENAMER-BOT
-## Rename Bot - Clone of  [AnyDLBot](https://telegram.dog/AnyDLBot)
+## Rename Bot - Clone of  [Renamer⚡](https://t.me/renamer23_bot)
 ---
 
 An Open Source Rename Telegram RoBot
 
 **My Feature**:
 
-👉 Rename any Telegram Files with Custom Thumbnail Support
+👉 Rename any Telegram Files with Custom Thumbnail Support and upload as file or vidoe
 
 ### Installation
 
 #### The Easy Way
 
-**Watch our Video for Create own Bot** - 👉 https://youtu.be/yYHrSnuYXpA
+**Watch infotel Video for knowing how to Create yoir own Bot** - 👉 https://youtu.be/yYHrSnuYXpA
 
 ### You can also tap the Deploy To Heroku button below to deploy straight to Heroku!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy?template=https://github.com/naveen9329/TG-URL-Uploader/tree/patch-10)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy?template=https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT/tree/master)
 
-**upgrade** your subscription for [@AnyDLBot](https://telegram.dog/AnyDLBot) without having to run anything on your own
+##Available BotFather commands
+```start - to check whether bot is alive 
+rename - (long press) and send the name of the new file.extension
+rename_video - (long press) and send the name of the new file.MP4 upload as video
+donate - please donate me
+ban - (admins only) to ban users
+unban - (admins only) to unban users
+help - to know how to use me```
 
 #### The Hard Way
 
@@ -30,19 +37,8 @@ cp sample_config.py config.py
 --- EDIT config.py values appropriately ---
 python bot.py
 ```
-## Our Telegram Channel and Group
 
-* [TG Bots Updates](https://telegram.dog/TGBotsz)
-* [InFoTel Paid Apps](https://telegram.dog/InFoTel14)
-* [InFoTel Group](https://telegram.dog/InFoTelGroup)
-
-## Credits, and Thanks to
-
-* [SpEcHlDe](https://telegram.dog/SpEcHlDe) for his [AnyDLBot](https://github.com/SpEcHiDe/AnyDLBot)
-* [Dan Tès](https://telegram.dog/haskell) for his [Pyrogram Library](https://github.com/pyrogram/pyrogram)
-* [Yoily](https://telegram.dog/YoilyL) for his [UploaditBot](https://telegram.dog/UploaditBot)
-
-- For FeedBack and Suggestions, please feel free to say in [@InFoTelGroup](https://telegram.dog/InFoTelGroup)
+- For FeedBack and Suggestions, please feel free to say in [@anonymousbotdiscussion](https://telegram.dog/anonymousbotdiscussion)
 
 #### LICENSE
 - GPLv3
