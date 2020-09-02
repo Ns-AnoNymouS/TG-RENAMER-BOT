@@ -67,4 +67,4 @@ Please short your file name and try again!"""
 
 **👥 Group:** [Ns Bot Supporters](https://t.me/anonymousbotdiscussion)
 
-**💻 Source Code:**Please join [Ns Bot Supporters](https://t.me/anonymousbotdiscussion) and ask for source code there 🥰. 
+**💻 Source Code:**Please join [Ns Bot Supporters](https://t.me/anonymousbotdiscussion) and ask for source code there 🥰. """
