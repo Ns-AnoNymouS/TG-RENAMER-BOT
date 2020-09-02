@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
+# (c) Ns_AnoNymouS 
 
 # the logging things
 import logging
@@ -51,7 +51,7 @@ async def start(bot, update):
     TRChatBase(update.from_user.id, update.text, "/start")
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.START_TEXT.format(update.from_user.first_name), 
+        text=Translation.START_TEXT.format(update.from_user.first_name, config.USER_NAME[1:]), 
         #reply_to_message_id=update.message_id
         reply_markup=InlineKeyboardMarkup(
         [
