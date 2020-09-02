@@ -11,6 +11,8 @@ logger = logging.getLogger(__name__)
 import os
 import sqlite3
 
+from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
+
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
@@ -22,6 +24,12 @@ from translation import Translation
 
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+myfather = 'https://t.me/{}'.format(Config.USER_NAME[1:])
+dissicion = 'https://t.me/anonymousbotdiscussion'
+channel = 'https://t.me/anonymousbotupdates'
+rate = 'https://t.me/anonymousbotdiscussion/215'
+
 
 from helper_funcs.chat_base import TRChatBase
 
@@ -37,13 +45,13 @@ async def help_user(bot, update):
     TRChatBase(update.from_user.id, update.text, "/help")
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.HELP_USER.format(update.from_user.first_name, config.USER_NAME),
+        text=Translation.HELP_USER.format(update.from_user.first_name, Config.USER_NAME[1:]),
         parse_mode="html",
         disable_web_page_preview=True,
         reply_to_message_id=update.message_id
     )
 
-from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
+
 
 @pyrogram.Client.on_message(pyrogram.Filters.command(["start"]))
 async def start(bot, update):
@@ -56,18 +64,16 @@ async def start(bot, update):
         reply_markup=InlineKeyboardMarkup(
         [
           [
-          InlineKeyboardButton('My Father 👨‍💻', url='https://t.me/Ns_AnoNymouS'),
-          InlineKeyboardButton('Discuss 🗣', url='https://t.me/anonymousbotdiscussion')
+          InlineKeyboardButton('My Father 👨‍💻', url=myfather),
+          InlineKeyboardButton('Discuss 🗣', url=dissicion)
           ],
           [
-          InlineKeyboardButton('Updates channel 📢', url='https://t.me/anonymousbotupdates'),
-          InlineKeyboardButton('Rate Me ⭐', url='https://t.me/anonymousbotdiscussion/215')
+          InlineKeyboardButton('Updates channel 📢', url=channel),
+          InlineKeyboardButton('Rate Me ⭐', url=rate)
           ]
         ]
-      )
-    )
-    return 
-
+       )
+     )
 @pyrogram.Client.on_message(pyrogram.Filters.command(["upgrade"]))
 async def upgrade(bot, update):
     # logger.info(update)
