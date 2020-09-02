@@ -24,8 +24,6 @@ start - to check whether bot is alive
 rename - (long press) and send the name of the new file.extension for uploading as file
 rename_video - (long press) and send the name of the new file.extension for upload as video
 donate - please donate me
-ban - (admins only) to ban users
-unban - (admins only) to unban users
 help - to know how to use me
 ```
 
