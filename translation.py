@@ -27,7 +27,7 @@ Type /help for more details."""
     USER_ADDED_TO_DB = "User <a href='tg://user?id={}'>{}</a> added to {} till {}."
     HELP_USER = """Hai <b><i>{}</i></b>, 
 
-I am Renamer bot ✍ by <a href={}>My Father 👨‍🏫</a>
+I am Renamer bot ✍ by <a href='https://t.me/{}'>My Father 👨‍🏫</a>
     
 1. Send Me A Thumbnail.
 
