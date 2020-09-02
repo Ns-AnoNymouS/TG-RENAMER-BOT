@@ -21,8 +21,8 @@ An Open Source Rename Telegram RoBot
 ## Available BotFather commands
 ```
 start - to check whether bot is alive 
-rename - (long press) and send the name of the new file.extension
-rename_video - (long press) and send the name of the new file.MP4 upload as video
+rename - (long press) and send the name of the new file.extension for uploading as file
+rename_video - (long press) and send the name of the new file.extension for upload as video
 donate - please donate me
 ban - (admins only) to ban users
 unban - (admins only) to unban users
