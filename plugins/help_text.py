@@ -51,12 +51,12 @@ async def start(bot, update):
     TRChatBase(update.from_user.id, update.text, "/start")
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.START_TEXT.format(update.from_user.first_name, config.USER_NAME[1:]), 
+        text=Translation.START_TEXT.format(update.from_user.first_name), 
         #reply_to_message_id=update.message_id
         reply_markup=InlineKeyboardMarkup(
         [
           [
-          InlineKeyboardButton('My Father 👨‍💻', url=),
+          InlineKeyboardButton('My Father 👨‍💻', url='https://t.me/{}'),
           InlineKeyboardButton('Discuss 🗣', url='https://t.me/anonymousbotdiscussion')
           ],
           [
@@ -64,7 +64,7 @@ async def start(bot, update):
           InlineKeyboardButton('Rate Me ⭐', url='https://t.me/anonymousbotdiscussion/215')
           ]
         ]
-      )
+      ).format(config.USER_NAME[1:])
     )
     return 
 
