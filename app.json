@@ -20,7 +20,7 @@
       "description": "Your bot token, as a string.",
       "value": ""
     },
-    "User_Name": {
+    "USER_NAME": {
       "description": "Your user name like @Ns_AnoNymouS",
       "value": "@Ns_AnoNymouS"
     },
