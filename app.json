@@ -11,6 +11,7 @@
   "success_url": "https://telegram.dog/AnyDLBot",
   "website": "https://github.com/SpEcHiDe/AnyDLBot",
   "repository": "https://github.com/erichdanikeninfo/TG-Rename-Bot",
+  "logo": "https://telegra.ph/file/681227bece69de877e442.jpg",
   "env": {
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
@@ -23,7 +24,6 @@
     "USER_NAME": {
       "description": "Your user name like @Ns_AnoNymouS",
       "value": "@Ns_AnoNymouS"
-      "required": true
     },
     "CHAT_BASE_TOKEN": {
       "description": "Your chat base token, as a string.",
