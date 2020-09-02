@@ -33,14 +33,11 @@ from hachoir.parser import createParser
 from PIL import Image
 from database.database import *
 
+
 @pyrogram.Client.on_message(pyrogram.Filters.command(["rename"]))
 async def rename_doc(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
-        await bot.delete_messages(
-            chat_id=update.chat.id,
-            message_ids=update.message_id,
-            revoke=True
-        )
+        await update.reply_text("You are B A N N E D")
         return
     TRChatBase(update.from_user.id, update.text, "rename")
     if (" " in update.text) and (update.reply_to_message is not None):
@@ -120,7 +117,7 @@ async def rename_doc(bot, update):
                 chat_id=update.chat.id,
                 document=new_file_name,
                 thumb=thumb_image_path,
-                caption=description,
+                caption=description.format(file_name[:-4]),
                 # reply_markup=reply_markup,
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
@@ -132,7 +129,7 @@ async def rename_doc(bot, update):
             )
             try:
                 os.remove(new_file_name)
-               # os.remove(thumb_image_path)
+                os.remove(thumb_image_path)
             except:
                 pass
             await bot.edit_message_text(
@@ -147,4 +144,3 @@ async def rename_doc(bot, update):
             text=Translation.REPLY_TO_DOC_FOR_RENAME_FILE,
             reply_to_message_id=update.message_id
         )
-
