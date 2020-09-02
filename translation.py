@@ -56,7 +56,7 @@ The given file name has {num} characters.
 ©️ <code>@renamer23_bot</code>
 Please short your file name and try again!"""
 
-    About = """Hi <b>{}</b>,
+    About = """Hi __{}__,
 **📝 Language:** Python 3
 
 **🧰 Framework:** Pyrogram
