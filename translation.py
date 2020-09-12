@@ -1,7 +1,7 @@
 class Translation(object):
     START_TEXT = """Hello <i><b>{}</b></i>,
 
-This is a Telegram Rename Bot by {}
+This is a Telegram Rename clone of <a href='https://t.me/renamer23_bot'>Renamer ⚡</a> by {}
 
 I Can rename ✍ with custom thumbnail and upload as video/file
 
@@ -63,8 +63,8 @@ Please short your file name and try again!"""
 
 **👨‍💻 Developer:** [Anonymous](https://t.me/Ns_AnoNymouS)
 
-📮 Channel: [Ns Bot Updates](https://t.me/anonymousbotupdates)
+📮 Channel: [INFOTEL](https://t.me/InFoTel14)
 
-**👥 Group:** [Ns Bot Supporters](https://t.me/anonymousbotdiscussion)
+**👥 Group:** [INFOTEL GROUP](https://t.me/InFoTelGroup)
 
-**💻 Source Code:**Please join [Ns Bot Supporters](https://t.me/anonymousbotdiscussion) and ask for source code there 🥰. """
+**💻 Source Code:**[Press Me](https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT)"""
