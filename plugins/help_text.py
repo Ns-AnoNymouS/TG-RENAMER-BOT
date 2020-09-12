@@ -26,9 +26,7 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 myfather = 'https://t.me/{}'.format(Config.USER_NAME[1:])
-dissicion = 'https://t.me/anonymousbotdiscussion'
-channel = 'https://t.me/anonymousbotupdates'
-rate = 'https://t.me/anonymousbotdiscussion/215'
+
 
 
 from helper_funcs.chat_base import TRChatBase
@@ -64,12 +62,7 @@ async def start(bot, update):
         reply_markup=InlineKeyboardMarkup(
         [
           [
-          InlineKeyboardButton('My Father 👨‍💻', url=myfather),
-          InlineKeyboardButton('Discuss 🗣', url=dissicion)
-          ],
-          [
-          InlineKeyboardButton('Updates channel 📢', url=channel),
-          InlineKeyboardButton('Rate Me ⭐', url=rate)
+          InlineKeyboardButton('My Father 👨‍💻', url=myfather)
           ]
         ]
        )
