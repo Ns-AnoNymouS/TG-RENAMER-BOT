@@ -67,4 +67,4 @@ Please short your file name and try again!"""
 
 **👥 Group:** [NS DICUSSION GROUP](https://t.me/Ns_Bot_supporters)
 
-**💻 Source Code:**[Press Me](Config.SOURSE)
+**💻 Source Code:**[Press Me](Config.SOURSE)"""
