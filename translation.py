@@ -1,7 +1,7 @@
 class Translation(object):
     START_TEXT = """Hello <i><b>{}</b></i>,
 
-This is a Telegram Rename clone of <a href='https://t.me/renamer23_bot'>Renamer ⚡</a> by {}
+This is a Telegram Rename clone of <a href='https://t.me/renamer_Ns_bot'>RENAMER NS BOT</a> by {}
 
 I Can rename ✍ with custom thumbnail and upload as video/file
 
@@ -14,7 +14,7 @@ Type /help for more details."""
     UPLOAD_START_VIDEO = "Uploading as video.....📤"
     UPLOAD_START = "Uploading as File.....📤"
     RCHD_TG_API_LIMIT = "Downloaded in {} seconds.\nDetected File Size: {}\nSorry. But, I cannot upload files greater than 1.95GB due to Telegram API limitations.I can't do anything for that 🤷‍♂️."
-    AFTER_SUCCESSFUL_UPLOAD_MSG = "**Thank you for Using [Anonymous](https://t.me/Ns_AnoNymouS)'s bot.**"
+    AFTER_SUCCESSFUL_UPLOAD_MSG = "**Thank you for Using [Renaner](https://t.me/renamer_Ns_bot) bot.**"
     AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "Downloaded in {} seconds.\nUploaded in {} seconds."
     NOT_AUTH_USER_TEXT = "Please /upgrade your subscription."
     NOT_AUTH_USER_TEXT_FILE_SIZE = "Detected File Size: {}. Free Users can only upload: {}\nPlease /upgrade your subscription.\nIf you think this is a bug, please contact <a href='https://t.me/anonymousbotdiscussion'>Ns Bot Supporters</a>"
@@ -53,7 +53,7 @@ Free users only 1 request per 30 minutes.
 The given file name has {num} characters.
 
 <b>Essays Not allowed in Telegram file name!</b>
-©️ <code>@renamer23_bot</code>
+©️ <code>@renamer_Ns_bot</code>
 Please short your file name and try again!"""
 
     About = """Hi __{}__,
@@ -63,8 +63,8 @@ Please short your file name and try again!"""
 
 **👨‍💻 Developer:** [Anonymous](https://t.me/Ns_AnoNymouS)
 
-📮 Channel: [INFOTEL](https://t.me/InFoTel14)
+📮 Channel: [Ns Bot Updates](https://t.me/Ns_bot_updates)
 
-**👥 Group:** [INFOTEL GROUP](https://t.me/InFoTelGroup)
+**👥 Group:** [NS DICUSSION GROUP](https://t.me/Ns_Bot_supporters)
 
-**💻 Source Code:**[Press Me](https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT)"""
+**💻 Source Code:**[Press Me](Config.SOURSE)
