@@ -35,3 +35,4 @@ class Config(object):
     PROCESS_MAX_TIMEOUT = 3600
     # watermark file
     DEF_WATER_MARK_FILE = "Renamed by @renamer22_bot"
+    SOURCE = "https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT"
