@@ -69,4 +69,4 @@ Please short your file name and try again!"""
 
 **👥 Group:** [NS BOT SUPPOTERS](https://t.me/Ns_Bot_supporters)
 
-**💻 Source Code:**[Press Me](Config.SOURCE)"""
+**💻 Source Code:**[Press Me](https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT)"""
