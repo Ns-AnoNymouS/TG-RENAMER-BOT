@@ -3,7 +3,7 @@ from sample_config import Config
 class Translation(object):
     START_TEXT = """Hello <i><b>{}</b></i>,
 
-This is a Telegram Rename clone of <a href='https://t.me/renamer_Ns_bot'>Renamer NS BOT</a> by {}
+This is a Telegram Rename clone of <a href= <https://t.me/disneygrou>project by {@doreamonfans1}
 
 I Can rename ✍ with custom thumbnail and upload as video/file
 
@@ -29,7 +29,7 @@ Type /help for more details."""
     USER_ADDED_TO_DB = "User <a href='tg://user?id={}'>{}</a> added to {} till {}."
     HELP_USER = """Hai <b><i>{}</i></b>, 
 
-I am Renamer bot ✍ by <a href='https://t.me/{}'>My Father 👨‍🏫</a>
+I am Renamer bot ✍ by <a hre <https://t.me/disneygrou>My Father 👨‍🏫<@doreamonfans1>
     
 1. Send Me A Thumbnail.
 
@@ -64,10 +64,10 @@ Please short your file name and try again!"""
 
 **🧰 Framework:** Pyrogram
 
-**👨‍💻 Developer:** [Anonymous](https://t.me/Ns_AnoNymouS)
+**👨‍💻 Delveoer @doreamonfans1 
 
-**📮 Channel:** [NS BOT UPDATES](https://t.me/Ns_bot_updates)
+**📮 Channel:** {disneygrou} <https://t.me/disneygrou>
 
-**👥 Group:** [NS BOT SUPPOTERS](https://t.me/Ns_Bot_supporters)
+**👥 Group:** [disneyteamchat} <https://t.me/disneyteamchat>
 
 **💻 Source Code:**[Press Me](https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT)"""
